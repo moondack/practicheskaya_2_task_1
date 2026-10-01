@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h1>Угадайка!</h1>
+
+<style>
+    body{
+        background-color: lightslategray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 1900px;
+        height: 800px;
+    }
+</style>
+    <form name="gameForm">
+        
+        <input type="number" name="userGuess" placeholder="Введите свое число">
+        
+     
+        <button type="button" onclick="
+        let inputNum = Number(document.gameForm.userGuess.value);
+            
+            if (inputNum > secret) {
+                document.gameForm.result.value = 'Меньше';} 
+                if (inputNum < secret) {
+                document.gameForm.result.value = 'Больше';}
+                if (inputNum == secret) {
+                document.gameForm.result.value = 'Попал';
+            }
+        ">Go!</button>
+
+        <br><br>
+        
+       
+        Загаданное число: <input type="text" name="result" readonly value="...">
+    </form>
+
+    <script>
+        let secret = Math.floor(Math.random() * 100) + 1;
+    </script>
+</body>
+</html>
